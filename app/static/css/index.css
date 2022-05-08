@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;900&display=swap');
+
+
+.navbar{
+  background-color: #001D4A;
+  font-family: 'Playfair Display SC', serif;
+  font-weight: 900;
+ 
+}
+.navbar-text {
+  color: #ECA400;
+  font-size: 30px;
+}
+body {
+  background-color: #EAF8BF;
+}
