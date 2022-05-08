@@ -7,8 +7,8 @@ def index():
   View root page function that returns the index page and its data.
   '''
 
-  message = 'Hello World'
-  return render_template('index.html', message=message)
+  title = 'One Pitch'
+  return render_template('index.html', title=title)
 
 
 @app.route('/categories')
@@ -16,7 +16,7 @@ def categories():
   '''
   View categories page function that returns the categories page and its data.
   '''
-  title = "categories"
+  title = "Categories"
   return render_template('categories.html', title=title)
 
 
