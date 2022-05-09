@@ -2,8 +2,15 @@ import unittest
 from app.models import User
 
 class UserModelTest(unittest.TestCase):
+  '''
+  Test Class to test the behavior of the User class
+  '''
 
   def setUp(self):
+    '''
+    Set up method that will run before every test.
+    '''
+    # self.new_user = User(1234, '')
     self.new_user = User(password='banana')
 
   def test_password_setter(self):
@@ -15,4 +22,3 @@ class UserModelTest(unittest.TestCase):
     
   def test_password_verification(self):
     self.assertTrue(self.new_user.verify_password('banana'))
-    
