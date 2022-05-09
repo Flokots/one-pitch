@@ -1,6 +1,24 @@
 {% extends 'base.html' %}
 
 {% block styles %}
-  {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<body>
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-heading">Every Second <br/> Counts</div>
+      <div class="btn-row">
+        <a class="btn btn-color btn-xl text-uppercase" href="">Pitch an idea</a>
+        <a class="btn btn1-color btn-xl text-uppercase" href="">View Pitches</a>
+      </div>
+      
+
+    </div>
+  </header>
+</body>
+
 {% endblock %}

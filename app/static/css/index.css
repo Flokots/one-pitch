@@ -1,16 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:wght@400;900&display=swap');
-
-
-.navbar{
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Nanum+Myeongjo&family=Playfair+Display+SC:wght@400;900&family=Water+Brush&display=swap');
+.navbar {
   background-color: #001D4A;
   font-family: 'Playfair Display SC', serif;
   font-weight: 900;
- 
+  margin-bottom: 0 !important;
+  border: 0 !important;
+  border-radius: 0%;
 }
+
 .navbar-text {
   color: #ECA400;
   font-size: 30px;
 }
-body {
+
+body,html {
   background-color: #EAF8BF;
+  height: 100%;
+  margin: 0;
+}
+
+header.masthead {
+  text-align: center;
+  color: #ECA400;
+  background-image: url("../images/header-img.jpg");
+  height: 80%;
+  width: auto;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center ;
+  background-size: cover;
+  max-width: 2398px;
+  max-height: 1920px;
+}
+
+header.masthead .masthead-heading {
+  font-size: 3.25rem;
+  font-weight: 400;
+  line-height: 3.25rem;
+  margin-bottom: 2rem;
+  font-family: 'Acme', sans-serif;
+  padding-top: 6em;
+}
+header .btn-row{
+ padding: 0%;
+}
+header .btn-color {
+  background-color: #EAF8BF;
+  color: #001D4A;
+}
+header .btn1-color {
+  background-color:#ECA400;
+  color:#001D4A;
 }
