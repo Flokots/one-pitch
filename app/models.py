@@ -15,3 +15,16 @@ class Comment:
   '''
   Comment class to define Comment Objects
   '''
+  pass
+
+class Pitch:
+  '''
+  Comment class to define Pitch Objects
+  '''
+  pass
+
+class Category:
+  '''
+  Comment class to define Category Objects
+  '''
+  pass
