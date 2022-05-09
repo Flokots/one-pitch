@@ -1,4 +1,6 @@
 from flask import render_template, url_for
+from flask_login import login_required
+
 from . import main
 from ..models import User, Comment
 
@@ -31,3 +33,14 @@ def category(id):
   return render_template(url_for('category.html'), id=id)
 
 
+@main.route('/pitch/<int:id>', methods=['GET', 'POST'])
+@login_required
+def pitch(id):
+  '''
+  View pitch page function that returns the pitch details.
+  '''
+
+  return render_template(url_for('pitch.html'), id=id)
+
+
+# @main.route('/pitch/<int:id>/comment/')
