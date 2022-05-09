@@ -8,6 +8,7 @@
   border-radius: 0%;
 }
 
+
 .navbar-text {
   color: #ECA400;
   font-size: 30px;
@@ -51,4 +52,147 @@ header .btn-color {
 header .btn1-color {
   background-color:#ECA400;
   color:#001D4A;
+}
+
+#categories .categories-item {
+  max-width: 26rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+}
+#categories .categories-item .categories-link {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+#categories .categories-item .categories-link .categories-hover {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background:#ECA400;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity  ease-in-out 0.25s; 
+}
+
+#categories .categories-item .categories-link .categories-hover .categories-hover-content {
+  font-size: 1.25rem;
+  color: #001D4A;
+}
+#categories .categories-item .categories-link:hover .categories-hover {
+  opacity: 0.7;
+}
+#categories .categories-item .categories-caption {
+  padding: 1.5em;
+  text-align: center;
+  background-color:#EAF8BF;
+}
+#categories .categories-item .categories-caption .categories-caption-heading {
+  font-size: 1.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 600;
+  margin-bottom: 0;
+}
+#categories .categories-item .categories-caption .categories-caption-subheading {
+  font-style: italic;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.categories-modal .modal-dialog {
+  margin: 1rem;
+  max-width: 100vw;
+}
+.categories-modal .modal-content {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  text-align: center;
+}
+.categories-modal .modal-content h2, .categories-modal .modal-content .h2 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+.categories-modal .modal-content p.item-intro {
+  font-style: italic;
+  margin-bottom: 2rem;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.categories-modal .modal-content p {
+  margin-bottom: 2rem;
+}
+.categories-modal .modal-content ul.list-inline {
+  margin-bottom: 2rem;
+}
+.categories-modal .modal-content img {
+  margin-bottom: 2rem;
+}
+.categories-modal .close-modal {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  background-color: transparent;
+}
+.categories-modal .close-modal:hover {
+  opacity: 0.3;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.page-section {
+  padding: 6em 0;
+}
+.page-section h2.section-heading, .page-section .section-heading.h2 {
+  font-size: 2.5em;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.page-section h3.section-subheading, .page-section .section-subheading.h3 {
+  font-size: 1.5em;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding: 9rem 0;
+  }
+}
+
+.column {
+  margin: 1em;
+}
+
+.footer {
+  padding: 1em;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  color:#ECA400;
+  background-color:#001D4A;
+  text-align: center;
+}
+
+.footer-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-social {
+  height: 2.5rem;
+  width: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 100%;
+  font-size: 1.2em;
 }

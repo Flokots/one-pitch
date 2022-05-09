@@ -3,6 +3,7 @@
 {% block styles %}
 {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 {% endblock %}
 
 {% block content %}
@@ -10,15 +11,156 @@
 <body>
   <header class="masthead">
     <div class="container">
-      <div class="masthead-heading">Every Second <br/> Counts</div>
+      <div class="masthead-heading">Every Second <br /> Counts</div>
       <div class="btn-row">
         <a class="btn btn-color btn-xl text-uppercase" href="">Pitch an idea</a>
         <a class="btn btn1-color btn-xl text-uppercase" href="">View Pitches</a>
       </div>
-      
+
 
     </div>
   </header>
+
+  <div class="container">
+    <!-- Categories Grid-->
+    <section class="page-section" id="categories">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="section-heading text-uppercase">Categories</h2>
+          <h3 class="section-subheading text-muted">
+            These are some of the pitch categories
+          </h3>
+        </div>
+        <div class="row">
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4">
+              <!-- Pick Up Lines-->
+              <div class="categories-item categories-hover">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/pickuplines.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">
+                    Pick Up Lines
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+              <!-- Application Pitches-->
+              <div class="categories-item">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/app-pitch.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">Application Pitches</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4">
+              <!-- Business Pitches-->
+              <div class="categories-item">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/business-pitch.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">Business Pitches</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+              <!-- Designs-->
+              <div class="categories-item">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/pitch1.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">Design Pitches</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+              <!--Elevator Pitch-->
+              <div class="categories-item">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/interview.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">Elevator Pitches</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+              <!-- Product Pitch-->
+              <div class="categories-item">
+                <a class="categories-link" href="" target="_blank">
+                  <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img class="img-fluid" src="../static/images/product-pitch.jpg" alt="..." />
+                </a>
+                <div class="categories-caption">
+                  <div class="categories-caption-heading">Product Pitches</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Footer-->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="row footer-content">
+        <div class="row align-items-center">
+          <div class="col-lg-12 text-lg-start">
+            Copyright &copy; Florence Kotohoyoh
+            <script>document.write(new Date().getFullYear())</script>
+          </div>
+        </div>
+        <div class="row footer-content">
+          <div class="col-lg-12 my-3 my-lg-0">
+            <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/flokots" target="_blank"><i
+                class="fab fa-twitter"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="https://github.com/Flokots" target="_blank"><i
+                class="fab fa-github"></i></a>
+            <a class="btn btn-dark btn-social mx-2" href="https://linkedin/in/flokots" target="_blank"><i
+                class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 
 {% endblock %}
