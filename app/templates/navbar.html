@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
 </head>
 
 <div class="navbar" role="navigation">
@@ -24,16 +25,17 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if current_user.is_authenticated %}
-        <li style="color: #001D4A; padding: 2px; font-family: 'Acme', sans-serif;">
+        <li style="color: #001D4A; font-family: 'Acme', sans-serif;">
           <a href="{{url_for('main.profile',uname=current_user.username)}}">
-            {{current_user.username}} 
+            {% if current_user.profile_pic_path %}
+            <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" alt=""
+              class="nav-img">
+            {% else %}
+            <img src="../../static/images/profilepic.webp" alt="" class="nav-img">
+            {% endif %}
+            {{current_user.username}}
           </a>
         </li>
-        <!-- {% if current_user.profile_pic_path %}
-        <img src="{{url_for('static', filename=current_user.profile_pic_path)}}" alt="" class="img-thumbnail">
-        {% else %}
-        <img src="{{url_for('static', filename=profilepic)}}" alt="" class="img-thumbnail">
-        {% endif %} -->
         <li>
           <a href="{{url_for('auth.logout')}}">
             Log out

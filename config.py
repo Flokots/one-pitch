@@ -4,7 +4,7 @@ class Config:
   '''
   General configuration parent class
   '''
-  SECRET_KEY = os.environ.get('SECRET_KEY')
+  SECRET_KEY=os.environ.get('SECRET_KEY')
   SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch'
   UPLOADED_PHOTOS_DEST='app/static/photos'
 
