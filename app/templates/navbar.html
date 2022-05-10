@@ -16,5 +16,24 @@
         One Pitch
       </a>
     </div>
+    <div>
+      <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticate %}
+          <li style="color: #EAF8BF; padding: 15px">
+            {{current_user.username}}
+          </li>
+          <li>
+            <a href="{{url_for('auth.logout')}}">
+              Sign out
+            </a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{{url_for('auth.login')}}">
+              Sign in
+            </a>
+          </li>
+      </ul>
+    </div>
   </div>
 </div>
