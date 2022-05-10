@@ -1,13 +1,24 @@
 {% extends 'base.html' %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
+<link rel="manifest" href="../static/site.webmanifest">
+{% endblock %}
+
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-2">
+    </div>
     <div class="col-md-8">
-      <!--Flash message-->
-      {% for message in get_flashed-messages() %}
+      <!--* Flash Message-->
+      {% for message in get_flashed_messages() %}
       <div class="alert alert-danger">
         <button type="button" class="close" data-dismiss="alert">
           &times;
@@ -15,17 +26,16 @@
         {{ message }}
       </div>
       {% endfor %}
-
-      <!--Login form-->
-      {{ wtf.quick_form(login_form)}}
-      <p>
-        Don't have an account?
-        <a href="{{url_for('auth.register')}}">
-          Sign up here
-        </a>
-      </p>
+      <div class="form">
+        <!--* Login Form -->
+        {{wtf.quick_form(login_form)}}
+        <p class="pform"> Don't have an account?
+          <a href="{{ url_for('auth.register')}}">Sign up here</a>
+        </p>
+      </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-2">
+    </div>
   </div>
 </div>
 

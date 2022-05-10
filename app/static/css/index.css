@@ -9,7 +9,17 @@
   border-radius: 0%;
 }
 
-
+.navbar-ul {
+  color:#EAF8BF;
+  font-size: 20px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-variant: normal;
+}
+.navbar-nav {
+  color:#EAF8BF;
+  background-color: #EAF8BF;
+  margin-top: 1em;
+}
 .navbar-text {
   color: #ECA400;
   font-size: 30px;

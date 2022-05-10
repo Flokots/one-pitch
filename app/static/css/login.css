@@ -1,0 +1,19 @@
+body,html {
+  background-color: #006992 !important;
+  /* color: #ECA400; */
+  height: 100%;
+  margin: 1em;
+}
+.form, .form > p {
+  padding: 1em;
+  margin: 1em;
+  background-color: #27476E;
+  color: #EAF8BF;
+}
+.form > p > a {
+  color: #ECA400;;
+}
+/* .pform {
+  padding-left: 2em;
+  margin-left: 2em;
+} */
