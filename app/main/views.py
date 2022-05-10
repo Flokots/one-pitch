@@ -59,14 +59,6 @@ def update_pic(uname):
   
   return redirect(url_for('main.profile', uname=uname))
 
-@main.route('/category/<int:id>')
-def category(id):
-  '''
-  View root page function that returns the categories page and its data.
-  '''
-  
-  return render_template('category.html', category=category)
-
 
 @main.route('/pitches', methods = ["GET","POST"])
 def pitch():
