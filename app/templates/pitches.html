@@ -11,6 +11,33 @@
 {% endblock %}
 
 {% block content %}
-<h1> Pitches {{id}} page </h1>      
-
+<div class="container">
+  <div>
+    {% if pitch.urlToImage %}
+    <img src="{{url_for('static', filename=pitch.urlToImage)}}" class="pitch-image">
+    {% else %}
+    <img src="../static/images/header-img.jpg" class="pitch-image">
+    {% endif %}
+  </div>
+  <div>
+    <h1> {{pitch.name | capitalize}} </h1>
+  </div>
+  <div>
+    <!--Displaying description-->
+    <p> {{pitch.category}} </p>
+  </div>
+  <div>
+    <!--Displaying description-->
+    <p> {{pitch.description}} </p>
+  </div>
+  <div>
+    <p> {{pitch.upvotes}} </p>
+  </div>
+  <div>
+    <p> {{pitch.downvotes}} </p>
+  </div>
+  <div>
+    <p> {{pitch.posted}} </p>
+  </div>
+</div>
 {% endblock %}

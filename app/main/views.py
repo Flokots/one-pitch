@@ -1,9 +1,9 @@
-from flask import render_template,redirect, url_for, abort, request
+from flask import flash, render_template,redirect, url_for, abort, request
 from flask_login import login_required
 
 from . import main
-from ..models import User, Category, Pitch, Comment
-from .forms import UpdateProfile
+from ..models import User, Pitch, Comment
+from .forms import UpdateProfile, AddPitch
 from .. import db, photos
 
 @main.route('/')
@@ -65,13 +65,33 @@ def category(id):
   View root page function that returns the categories page and its data.
   '''
   
-  category = Category.query.filter_by(id=id).first()
   return render_template('category.html', category=category)
 
 
-@main.route('/pitches/<int:id>', methods = ["GET","POST"])
-def pitches(id):
+@main.route('/pitches', methods = ["GET","POST"])
+def pitch():
   '''
   View root page function that returns the pitches page and its data
   '''
-  return render_template('pitches.html', id=id)
+  pitches = Pitch.query.all()
+
+  return render_template('pitches.html', pitches=pitches)
+
+
+@main.route('/pitch/new', methods=['GET', 'POST'])
+@login_required
+def new_pitch():
+
+  form = AddPitch()
+
+  if form.validate_on_submit():
+    pitch = Pitch(name = form.name.data, description = form.description.data, category = form.category.data)
+    db.session.add(pitch)
+    db.session.commit()
+    flash('Sucess')
+
+
+    return redirect(url_for('main.pitch'))
+  return render_template('addpitch.html', pitch_form = form)
+
+ 
