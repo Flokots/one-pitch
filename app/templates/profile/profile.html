@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+<link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
+<link rel="manifest" href="../static/site.webmanifest">
+{% endblock %}
+
+{% block content %}
+  <div class="container profile">
+    <div class="row">
+      <!--Displaying Username-->
+      <div class="col-md-4">
+        <h3> {{ user.username | capitalize }} </h3>
+        
+        <!--Displaying user bio -->
+        {% if user.bio %}
+          <p> {{user.bio}} </p>
+        {% else %}
+          <p> {{user.username | capitalize }} has no bio </p>
+        {% endif %}
+      </div>
+
+      <!--Display profile photo-->
+      <div class="col-md-4">
+        {% if user.profile_pic_path %}
+        <img src="{{url_for('static', filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+        {% else %}
+        <img src="{{url_for('static', filename=profilepic)}}" alt="" class="img-thumbnail">
+        {% endif %}
+      </div>
+      {% if user == current_user %}
+        <div class="col-md-12">
+          <a class="btn btn1-color btn-xl text-uppercase" href="{{url_for('main.update_profile', uname=user.username)}}">
+           Edit Profile 
+          </a>
+            <!-- <a href="{{url_for('main.update_profile', uname=user.username)}}" class="prof-link">
+              Edit Profile
+            </a> -->
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  {% endblock %}
