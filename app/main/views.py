@@ -3,7 +3,7 @@ from flask import render_template,redirect, url_for, abort, request
 from flask_login import login_required
 
 from . import main
-from ..models import User, Comment
+from ..models import User, Category, Pitch, Comment
 from .forms import UpdateProfile
 from .. import db, photos
 
@@ -60,13 +60,18 @@ def update_pic(uname):
   return redirect(url_for('main.profile', uname=uname))
 
 
-@main.route('/categories')
-def categories():
+@main.route('/categories/<uname>')
+def categories(cname):
   '''
   View categories page function that returns the categories page and its data.
   '''
-  title = "Categories"
-  return render_template(url_for('categories.html'), title=title)
+  category = Category.query.filter_by(name = cname).first()
+
+  if category is None:
+    abort(404)
+  
+  title = f"{category} Category"
+  return render_template(url_for('category.html'), title=title)
 
 
 @main.route('/category/<int:id>')
