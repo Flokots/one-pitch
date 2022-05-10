@@ -3,6 +3,7 @@
 {% block styles %}
 {{ super() }}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
@@ -12,32 +13,8 @@
 
 {% block content %}
 <div class="container">
-  <div>
-    {% if pitch.urlToImage %}
-    <img src="{{url_for('static', filename=pitch.urlToImage)}}" class="pitch-image">
-    {% else %}
-    <img src="../static/images/header-img.jpg" class="pitch-image">
-    {% endif %}
-  </div>
-  <div>
-    <h1> {{pitch.name | capitalize}} </h1>
-  </div>
-  <div>
-    <!--Displaying description-->
-    <p> {{pitch.category}} </p>
-  </div>
-  <div>
-    <!--Displaying description-->
-    <p> {{pitch.description}} </p>
-  </div>
-  <div>
-    <p> {{pitch.upvotes}} </p>
-  </div>
-  <div>
-    <p> {{pitch.downvotes}} </p>
-  </div>
-  <div>
-    <p> {{pitch.posted}} </p>
-  </div>
+  {% for pitch in pitches %}
+  <p>{{pitch.name}}</p>
+  {% endfor %}
 </div>
 {% endblock %}

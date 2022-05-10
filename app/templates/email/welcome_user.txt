@@ -3,8 +3,7 @@ Hello {{user.username | capitalize}}
 Welcome to One Pitch!
 Thank you for signing up to our application. 
 
-We hope you will find the inspiration you are looking for and have
-fun while at it. 
+We hope you will find the inspiration you are looking for and have fun while at it. 
 
 One again, welcome!
 
