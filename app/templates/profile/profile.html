@@ -12,8 +12,8 @@
 
 {% block content %}
 <div class="container profile">
-   <!--Display profile photo-->
-   <div class="img-container">
+  <!--Display profile photo-->
+  <div class="img-container">
     {% if user.profile_pic_path %}
     <img src="{{url_for('static', filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
     {% else %}
@@ -35,28 +35,52 @@
       </div>
     </div>
   </div>
-  <div>
-    {% if user == current_user %}
-    <div class="form">
-      <h5>Edit Profile</h5>
-      <form action="{{url_for('main.update_pic', uname=user.username)}}" method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-          <label class="form-label">Upload Profile Picture</label>
-          <input type="file" name="photo" class="form-control">
+  {% if user == current_user %}
+  <div class="form">
+    <h5>Edit Profile</h5>
+    <form action="{{url_for('main.update_pic', uname=user.username)}}" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label">Upload Profile Picture</label>
+        <input type="file" name="photo" class="form-control">
+      </div>
+      <div class="row center-row justify-content-center">
+        <div class="col-md-6 col-sm-6 text-center">
+          <input type="submit" class="btn btn-success btn-xl text-uppercase button-row">
         </div>
-        <div class="row center-row justify-content-center">
-          <div class="col-md-6 col-sm-6 text-center">
-            <input type="submit" class="btn btn-success btn-xl text-uppercase button-row">
-          </div>
-          <div class="col-md-6 col-sm-6 text-center">
-            <a class="btn btn1-color btn-xl text-uppercase button-row"
-              href="{{url_for('main.update_profile', uname=user.username)}}">
-              Edit Profile
-            </a>
+        <div class="col-md-6 col-sm-6 text-center">
+          <a class="btn btn1-color btn-xl text-uppercase button-row"
+            href="{{url_for('main.update_profile', uname=user.username)}}">
+            Edit Profile
+          </a>
         </div>
-      </form>
-    </div>
-    {% endif %}
+    </form>
   </div>
+  {% endif %}
+  <div class="container">
+    <h1 class="text-upper">My Pitches</h1>
+    <hr>
+  
+    {% for pitch in pitches %}
+    <!-- style="max-width: 540px;"  -->
+      <div class="card mb-3 article-card">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{ pitch.urlToImage }}" class="img-fluid rounded-start" alt="{{ pitch.name }}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h4 class="card-title article-h3">{{ news_article.title}}</h4>
+              <p class="card-text">{{news_article.description}}</p>
+              <a href="{{news_article.url}}" alt="{{ news_article.title }}">Read the full story here!</a>
+              <p class="card-text"><small class="text-muted">Published At: {{ news_article.publishedAt }}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    {% endfor %}
+  
+  </div>
+</div>
 </div>
 {% endblock %}

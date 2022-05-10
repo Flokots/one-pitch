@@ -60,6 +60,8 @@ class Pitch(db.Model):
 
   id = db.Column(db.Integer, primary_key=True)
   name = db.Column(db.String(255))
+  description = db.Column(db.String(255))
+  urlToImage = db.Column(db.String(255))
   upvotes = db.Column(db.Integer)
   downvotes = db.Column(db.Integer)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
