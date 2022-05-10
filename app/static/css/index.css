@@ -214,3 +214,11 @@ header .btn1-color {
   font-size: 1.2em;
 }
 
+.nav-img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  padding: 0.5em;
+  margin-top: 0;
+}
