@@ -1,4 +1,3 @@
-from crypt import methods
 from flask import render_template,redirect, url_for, abort, request
 from flask_login import login_required
 
@@ -60,5 +59,19 @@ def update_pic(uname):
   
   return redirect(url_for('main.profile', uname=uname))
 
+@main.route('/category/<int:id>')
+def category(id):
+  '''
+  View root page function that returns the categories page and its data.
+  '''
+  
+  category = Category.query.filter_by(id=id).first()
+  return render_template('category.html', category=category)
 
 
+@main.route('/pitches/<int:id>', methods = ["GET","POST"])
+def pitches(id):
+  '''
+  View root page function that returns the pitches page and its data
+  '''
+  return render_template('pitches.html', id=id)

@@ -34,7 +34,7 @@ class User(UserMixin, db.Model):
     return check_password_hash(self.pass_secure, password)
 
   def __repr__(self):
-    return f'User {self.username}'
+    return f'{self.username}'
 
 
 class Category(db.Model):
@@ -49,7 +49,7 @@ class Category(db.Model):
   
 
   def __repr__(self):
-    return f'Category {self.name}'
+    return f'{self.name}'
 
 
 class Pitch(db.Model):
@@ -67,7 +67,7 @@ class Pitch(db.Model):
   comments = db.relationship('Comment', backref = 'pitch', lazy='dynamic')
 
   def __repr__(self):
-    return f'Pitch {self.name}'
+    return f'{self.name}'
 
 
 class Comment(db.Model):
@@ -83,5 +83,5 @@ class Comment(db.Model):
   category_id = db.Column(db.Integer, db.ForeignKey('categories.id'))
 
   def __repr__(self):
-    return f'Comment: {self.name}'
+    return f'{self.name}'
  
