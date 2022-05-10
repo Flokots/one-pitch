@@ -26,6 +26,7 @@ def profile(uname):
 
   return render_template("profile/profile.html", user=user)
 
+
 @main.route('/user/<uname>/update', methods = ['GET', 'POST'])
 @login_required
 def update_profile(uname):
@@ -60,28 +61,14 @@ def update_pic(uname):
   return redirect(url_for('main.profile', uname=uname))
 
 
-@main.route('/categories/<uname>')
-def categories(cname):
-  '''
-  View categories page function that returns the categories page and its data.
-  '''
-  category = Category.query.filter_by(name = cname).first()
 
-  if category is None:
-    abort(404)
-  
-  title = f"{category} Category"
-  return render_template(url_for('category.html'), title=title)
-
-
-@main.route('/category/<int:id>')
-def category(id):
+@main.route('/category/<cname>', methods=['GET', 'POST'])
+def category(cname):
   '''
   View category page function that returns the category details.
   '''
+  return render_template('category.html', category=cname)
 
-
-  return render_template(url_for('category.html'), id=id)
 
 
 @main.route('/pitch/<int:id>', methods=['GET', 'POST'])
@@ -91,6 +78,12 @@ def pitch(id):
   View pitch page function that returns the pitch details.
   '''
 
-  return render_template(url_for('pitch.html'), id=id)
+  return render_template('pitch.html', id=id)
+
+
+@main.route('/pitch/<int:id>/comment', methods = ['GET', 'POST'])
+@login_required
+def new_comment(id):
+  pass
 
 
