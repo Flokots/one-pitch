@@ -26,7 +26,7 @@ body,html {
 .profile {
   background-color: #006992;
   color: #EAF8BF;
-  padding: 2em;
+  /* padding: 2em; */
   font-family: 'Acme', sans-serif;
   font-size: large;
 }
@@ -35,10 +35,43 @@ body,html {
   text-decoration: underline;
 }
 
+.img {
+  max-width: 100%;
+  max-height: 100%;
+}
 .img-thumbnail {
   border-radius: 50%;
+  border: none;
+  height: 150px;
+  width: 150px;
+  margin-top: 1em;
 }
+.img-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .btn1-color {
   background-color:#ECA400;
   color:#001D4A;
+}
+.bio {
+  background-color:#001D4A;
+  color:#EAF8BF;
+  padding: 1em;
+  margin: 1em;
+}
+h5 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.button-row {
+  margin: 1em;
+  width: 110px;
+}
+.center-row {
+  margin-right: auto;
+  margin-left: auto;
 }
