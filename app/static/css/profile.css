@@ -1,24 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Nanum+Myeongjo&family=Playfair+Display+SC:wght@400;900&family=Water+Brush&display=swap');
 
 body,html {
-  /* background-color: #006992 !important; */
-  background-image: url("../images/form-background.jpg");
+  background-color: #006992 !important;
   /* color: #ECA400; */
   height: 100%;
   margin: 1em;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-position: left;
-  background-size: cover;
-  max-width: 2398px;
-  max-height: 1920px;
 }
 .form, .form > p {
   padding: 1em;
   margin: 1em;
   background-color: #27476E;
   color: #EAF8BF;
-  float: left;
 }
 .form > p > a {
   color: #ECA400;;
@@ -83,3 +75,4 @@ h5 {
   margin-right: auto;
   margin-left: auto;
 }
+

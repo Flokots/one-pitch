@@ -14,27 +14,29 @@
 {% block content %}
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-8">
-      <!--* Flash Message-->
-      {% for message in get_flashed_messages() %}
-      <div class="alert alert-danger">
-        <button type="button" class="close" data-dismiss="alert">
-          &times;
-        </button>
-        {{ message }}
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <div class="col-md-2">
       </div>
-      {% endfor %}
-      <div class="form">
-        <!--* Login Form -->
-        {{wtf.quick_form(login_form)}}
-        <p class="pform"> Don't have an account?
-          <a href="{{ url_for('auth.register')}}">Sign up here</a>
-        </p>
+      <div class="col-md-8">
+        <!--* Flash Message-->
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert">
+            &times;
+          </button>
+          {{ message }}
+        </div>
+        {% endfor %}
+        <div class="form">
+          <!--* Login Form -->
+          {{wtf.quick_form(login_form)}}
+          <p class="pform"> Don't have an account?
+            <a href="{{ url_for('auth.register')}}">Sign up here</a>
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="col-md-2">
+      <div class="col-md-2">
+      </div>
     </div>
   </div>
 </div>
