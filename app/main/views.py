@@ -62,28 +62,3 @@ def update_pic(uname):
 
 
 
-@main.route('/category/<cname>', methods=['GET', 'POST'])
-def category(cname):
-  '''
-  View category page function that returns the category details.
-  '''
-  return render_template('category.html', category=cname)
-
-
-
-@main.route('/pitch/<int:id>', methods=['GET', 'POST'])
-@login_required
-def pitch(id):
-  '''
-  View pitch page function that returns the pitch details.
-  '''
-
-  return render_template('pitch.html', id=id)
-
-
-@main.route('/pitch/<int:id>/comment', methods = ['GET', 'POST'])
-@login_required
-def new_comment(id):
-  pass
-
-
