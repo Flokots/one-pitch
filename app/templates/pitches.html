@@ -2,8 +2,8 @@
 
 {% block styles %}
 {{ super() }}
-<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 <link rel="apple-touch-icon" sizes="180x180" href="../static/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png">
@@ -13,8 +13,28 @@
 
 {% block content %}
 <div class="container">
+  
   {% for pitch in pitches %}
-  <p>{{pitch.name}}</p>
+  <!--Pick Up lines Category-->
+  {%if pitch.category == 'Pick Up Lines' %}
+  <h1> Pick Up Lines Category</h1>
+  <div class="card mb-3 article-card">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="" class="img-fluid rounded-start" alt="{{ pitch.name}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h4 class="card-title article-h3">{{ pitch.name}}</h4>
+          <p class="card-text">{{pitch.description}}</p>
+          <a href="" alt="">Likes</a>
+          <a href="" alt="">Dislikes</a>
+          <p class="card-text"><small class="text-muted">Published At: {{ pitch.posted }}</small> by <b>{{pitch.pitcher}}</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
   {% endfor %}
 </div>
 {% endblock %}
