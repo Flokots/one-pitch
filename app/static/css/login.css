@@ -13,7 +13,10 @@ body,html {
 .form > p > a {
   color: #ECA400;;
 }
-/* .pform {
-  padding-left: 2em;
-  margin-left: 2em;
-} */
+
+.alert-danger {
+  padding: 20px;
+  background-color: #f44336!important; 
+  color: white;
+  margin-bottom: 15px;
+}
