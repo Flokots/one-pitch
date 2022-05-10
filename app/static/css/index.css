@@ -24,7 +24,13 @@
   color: #ECA400;
   font-size: 30px;
 }
-
+.navbar-toggle {
+  margin-top: 2em;
+  background-color: #ECA400 !important;
+}
+.navbar-toggle span{
+  background-color:#EAF8BF!important;
+}
 body,html {
   background-color: #EAF8BF;
   height: 100%;
