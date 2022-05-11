@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import flash, render_template, redirect, url_for, abort, request
 from flask_login import current_user, login_required
 
@@ -130,15 +131,41 @@ def new_comment(pitch_id):
 def pitch_comments(id):
   pitch = Pitch.query.filter_by(id=id).first()
   comments = Comment.get_comment(id)
-  return render_template('display_comments.html', comments=comments, pitch=pitch)
+  back = request.referrer
+  return render_template('display_comments.html', comments=comments, pitch=pitch, back=back)
 
-@main.route('/pitch/<int:id>/upvote')
+@main.route('/pitch/<int:id>/upvote', methods=['GET', 'POST'])
 @login_required
 def upvote_pitch(id):
   pitch = Pitch.query.filter_by(id=id).first()
   upvotes = pitch.upvotes
-  upvotes = upvotes ++ 1
+  pitch.upvotes = upvotes + 1
+  print( pitch.upvotes)
   cname = pitch.name
 
-  return redirect(url_for('main.pitch', cname=cname, upvotes=upvotes))
+  db.session.add(pitch)
+  db.session.commit()
+  print(pitch)
+
+
+  upvotes = pitch.upvotes
+  return redirect(request.referrer)
+
+
+@main.route('/pitch/<int:id>/downvote', methods=['GET', 'POST'])
+@login_required
+def downvote_pitch(id):
+  pitch = Pitch.query.filter_by(id=id).first()
+  downvotes = pitch.downvotes
+  pitch.downvotes = downvotes + 1
+  print( pitch.downvotes)
+  cname = pitch.name
+
+  db.session.add(pitch)
+  db.session.commit()
+  print(pitch)
+
+
+  downvotes = pitch.downvotes
+  return redirect(request.referrer)
   
