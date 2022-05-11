@@ -17,8 +17,7 @@ class AddPitch(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-  username = StringField('UserName', validators=[DataRequired()])
-  comment = TextAreaField('Comment', validators=[DataRequired()])
+  name = StringField('Comment', validators=[DataRequired()])
   submit = SubmitField('Submit')
-  
+
   

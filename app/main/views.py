@@ -3,7 +3,7 @@ from flask_login import current_user, login_required
 
 from . import main
 from ..models import User, Pitch, Comment
-from .forms import UpdateProfile, AddPitch
+from .forms import AddPitch, UpdateProfile, CommentForm
 from .. import db, photos
 
 
@@ -109,3 +109,20 @@ def new_pitch():
     return redirect(url_for('main.pitch', cname=cname))
   return render_template('addpitch.html', pitch_form=form)
 
+
+
+
+@main.route('/pitch/<int:pitch_id>/comment', methods=['GET', 'POST'])
+@login_required
+def new_comment(pitch_id):
+  pitch_id = pitch_id
+  form = CommentForm()
+
+  if form.validate_on_submit():
+    new_comment = Comment(name = form.name.data, pitch_id=pitch_id, user_id=current_user.id)
+    db.session.add(new_comment)
+    db.session.commit()
+
+    return redirect(url_for('.index'))
+
+  return render_template('comment.html', form=form)

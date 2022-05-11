@@ -11,11 +11,11 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon-16x16.png">
 <link rel="manifest" href="../static/site.webmanifest">
 {% endblock %}
-
+=pitch
 {% block content %}
   <div class="container">
     <div class="row">
-      {{ wtf.quick_form(Comment)}}
+      {{ wtf.quick_form(form)}}
     </div>
   </div>
 {% endblock %}
