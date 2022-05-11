@@ -15,4 +15,10 @@ class AddPitch(FlaskForm):
   category = SelectField(label="Pitch Category", choices=[(" ", "--Select an option-- "),('Pick Up Lines','Pick Up Lines'),('Applications','Applications'),('Business','Business'),('Designs','Designs'),('Interview', 'Interview'),('Product','Product')], validators=[DataRequired()])
   submit = SubmitField('Submit')
 
+
+class CommentForm(FlaskForm):
+  username = StringField('UserName', validators=[DataRequired()])
+  comment = TextAreaField('Comment', validators=[DataRequired()])
+  submit = SubmitField('Submit')
+  
   
