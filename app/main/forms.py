@@ -10,9 +10,9 @@ class UpdateProfile(FlaskForm):
 
 
 class AddPitch(FlaskForm):
-  name = StringField('Name', validators=[DataRequired()])
-  description = TextAreaField('Description', validators=[DataRequired()])
-  category = SelectField('Pitch Category', choices=[('Pick Up Lines','Pick Up Lines'),('Applications','Applications'),('Business','Business'),('Designs','Designs'),('Interview', 'Interview'),('Product','Product')],validators=[DataRequired()])
- 
+  name = StringField('Pitch Name', validators=[DataRequired()])
+  description = TextAreaField('Pitch Description', validators=[DataRequired()])
+  category = SelectField(label="Pitch Category", choices=[(" ", "--Select an option-- "),('Pick Up Lines','Pick Up Lines'),('Applications','Applications'),('Business','Business'),('Designs','Designs'),('Interview', 'Interview'),('Product','Product')], validators=[DataRequired()])
   submit = SubmitField('Submit')
 
+  
