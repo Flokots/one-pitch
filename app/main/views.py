@@ -132,3 +132,13 @@ def pitch_comments(id):
   comments = Comment.get_comment(id)
   return render_template('display_comments.html', comments=comments, pitch=pitch)
 
+@main.route('/pitch/<int:id>/upvote')
+@login_required
+def upvote_pitch(id):
+  pitch = Pitch.query.filter_by(id=id).first()
+  upvotes = pitch.upvotes
+  upvotes = upvotes ++ 1
+  cname = pitch.name
+
+  return redirect(url_for('main.pitch', cname=cname, upvotes=upvotes))
+  
