@@ -28,14 +28,14 @@
           <p class="card-text">{{pitch.description}}</p>
           <p class="card-text"><small class="text-muted">Published At: {{ pitch.posted }}</small></p>
         </div>
-        <form action="/pitch/{{pitch.id}}/upvote" method="post">
-          <button class="btn btn-xl">
+        <form action="/pitch/{{pitch.id}}/upvote" method="post" class="pitch-form">
+          <button class="btn btn-xl icon-button">
             <i class="bi bi-hand-thumbs-up" style="font-size: 2.5em; color:red;"></i>
             {{pitch.upvotes}}
           </button>
         </form>
-        <form action="/pitch/{{pitch.id}}/downvote" method="post">
-          <button class="btn btn-xl">
+        <form action="/pitch/{{pitch.id}}/downvote" method="post" class="pitch-form">
+          <button class="btn btn-xl icon-button">
             <i class="bi bi-hand-thumbs-down" style="font-size: 2.5em; color:black;"></i>
             {{pitch.downvotes}}
           </button>

@@ -250,3 +250,11 @@ h1, h4 {
   margin-right: 5px;
   color:#001D4A!important;
 }
+
+.icon-button {
+  background-color: transparent;
+}
+
+.pitch-form{
+  display: inline-block;
+}
