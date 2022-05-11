@@ -34,9 +34,17 @@ class DevConfig(Config):
     Config: The parent configuration class with General configuration settings
   '''
 
+  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch'
+  
+
 DEBUG=True
+
+class TestConfig(Config):
+  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch_test'
+
 
 config_options = {
   'development': DevConfig,
-  'production': ProdConfig
+  'production': ProdConfig,
+  'test': TestConfig
 }
