@@ -68,7 +68,7 @@ def pitch(cname):
   '''
   View root page function that returns the pitches page and its data
   '''
- 
+  
   if cname == 'pickuplines':
     pickuplines = Pitch.query.filter_by(category='Pick Up Lines')
     return render_template('pitches/pickuplines.html', pickuplines=pickuplines)
@@ -102,8 +102,7 @@ def new_pitch():
     pitch = Pitch(name=form.name.data, description=form.description.data, category=form.category.data, user_id=user_id)
     db.session.add(pitch)
     db.session.commit()
-    
-    
+
     cname=form.category.data
 
     return redirect(url_for('main.pitch', cname=cname))
@@ -117,12 +116,10 @@ def new_pitch():
 def new_comment(pitch_id):
   pitch_id = pitch_id
   form = CommentForm()
-
   if form.validate_on_submit():
     new_comment = Comment(name = form.name.data, pitch_id=pitch_id, user_id=current_user.id)
     db.session.add(new_comment)
     db.session.commit()
-
     return redirect(url_for('.index'))
 
   return render_template('comment.html', form=form)
