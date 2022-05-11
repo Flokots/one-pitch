@@ -67,6 +67,7 @@ class Comment(db.Model):
   name = db.Column(db.String(255))
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+  posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
 
   def save_comment(self):
