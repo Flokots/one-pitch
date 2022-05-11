@@ -123,3 +123,12 @@ def new_comment(pitch_id):
     return redirect(url_for('.index'))
 
   return render_template('comment.html', form=form)
+
+
+@main.route('/pitch/<int:id>')
+@login_required
+def pitch_comments(id):
+  pitch = Pitch.query.filter_by(id=id).first()
+  comments = Comment.get_comment(id)
+  return render_template('display_comments.html', comments=comments, pitch=pitch)
+
