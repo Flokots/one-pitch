@@ -1,5 +1,5 @@
 from flask import flash, render_template, redirect, url_for, abort, request
-from flask_login import login_required
+from flask_login import current_user, login_required
 
 from . import main
 from ..models import User, Pitch, Comment
@@ -19,12 +19,16 @@ def index():
 
 @main.route('/user/<uname>')
 def profile(uname):
+
   user = User.query.filter_by(username=uname).first()
 
   if user is None:
     abort(404)
 
-  return render_template("profile/profile.html", user=user)
+  mypitches = Pitch.query.all()
+  pitcher = Pitch.query.filter_by(user_id=user.id).first()
+  print(pitcher)
+  return render_template("profile/profile.html", user=user, mypitches=mypitches)
 
 
 @main.route('/user/<uname>/update', methods=['GET', 'POST'])
@@ -98,7 +102,9 @@ def new_pitch():
   form = AddPitch()
 
   if form.validate_on_submit():
-    pitch = Pitch(name=form.name.data, description=form.description.data, category=form.category.data)
+    user_id = current_user.id
+    print(user_id)
+    pitch = Pitch(name=form.name.data, description=form.description.data, category=form.category.data, user_id=user_id)
     db.session.add(pitch)
     db.session.commit()
 
