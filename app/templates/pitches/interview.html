@@ -27,14 +27,18 @@
           <p class="card-text">{{pitch.description}}</p>
           <p class="card-text"><small class="text-muted">Published At: {{ pitch.posted }}</small></p>
         </div>
-        <a class="btn btn-xl" href="">
-          <i class="bi bi-hand-thumbs-up" style="font-size: 2.5em; color:red;"></i>
-          upvotes
-        </a>
-        <a class="btn btn-xl" href="">
-          <i class="bi bi-hand-thumbs-down" style="font-size: 2.5em; color:black"></i>
-          downvotes
-        </a>
+        <form action="/pitch/{{pitch.id}}/upvote" method="post" class="pitch-form">
+          <button class="btn btn-xl icon-button">
+            <i class="bi bi-hand-thumbs-up" style="font-size: 2.5em; color:red;"></i>
+            {{pitch.upvotes}}
+          </button>
+        </form>
+        <form action="/pitch/{{pitch.id}}/downvote" method="post" class="pitch-form">
+          <button class="btn btn-xl icon-button">
+            <i class="bi bi-hand-thumbs-down" style="font-size: 2.5em; color:black;"></i>
+            {{pitch.downvotes}}
+          </button>
+        </form>
         <a href="/pitch/{{pitch.id}}/comment" class="btn text-upper">
           <i class="bi bi-chat-square-text-fill" style="font-size: 2.5em; color:antiquewhite;"></i>
         </a>
