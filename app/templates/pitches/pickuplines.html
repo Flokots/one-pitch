@@ -2,6 +2,7 @@
 
 {% block styles %}
 {{ super() }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link rel="sylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -25,15 +26,24 @@
         <div class="card-body">
           <h4 class="card-title article-h3">{{ pitch.name}}</h4>
           <p class="card-text">{{pitch.description}}</p>
-          <a href="" alt="">Read the full story here!</a>
           <p class="card-text"><small class="text-muted">Published At: {{ pitch.posted }}</small></p>
         </div>
-      </div>
+        <a class="btn btn-xl" href="">
+          <i class="bi bi-hand-thumbs-up" style="font-size: 2.5em; color:red;"></i>
+          upvotes
+        </a>
+        <a class="btn btn-xl" href="">
+          <i class="bi bi-hand-thumbs-down" style="font-size: 2.5em; color:black"></i>
+          downvotes
+        </a>
+        <a href="#" class="btn btn-primary text-upper">Leave a comment</a>
       </div>
     </div>
   </div>
+</div>
+</div>
 
-  {% endfor %}
+{% endfor %}
 
 </div>
 
