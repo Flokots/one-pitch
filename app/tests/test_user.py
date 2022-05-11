@@ -12,6 +12,10 @@ class UserModelTest(unittest.TestCase):
     '''
     self.new_user = User(id=1, username='ndizi', email='ndizi@gmail.com', bio='hey world', profile_pic_path='/static/photos',password='banana')
 
+  
+  def tearDown(self):
+    User.query.delete()
+  
   def test_init(self):
     '''
     test_init test case to test if the object is initialized properly.
@@ -30,3 +34,4 @@ class UserModelTest(unittest.TestCase):
     
   def test_password_verification(self):
     self.assertTrue(self.new_user.verify_password('banana'))
+
