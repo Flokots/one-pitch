@@ -222,3 +222,31 @@ header .btn1-color {
   padding: 0.5em;
   margin-top: 0;
 }
+
+.article-card {
+  color: #191923;
+  padding: 1em;
+  margin: 2em;
+  border-radius: 2px;
+  border:#191923;
+  background-color:#F39237;
+  text-align: center;
+}
+
+.article-h3 {
+  color:#191923;
+}
+
+h1, h4 {
+  text-align: center;
+}
+ 
+.thumbs {
+  height: 50px;
+  width: 75px;
+  float: left;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 5px;
+  color:#001D4A!important;
+}

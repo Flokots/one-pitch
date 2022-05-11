@@ -83,8 +83,7 @@ def new_pitch():
   form = AddPitch()
 
   if form.validate_on_submit():
-    pitch = Pitch(name=form.name.data,
-                  description=form.description.data, category=form.category.data)
+    pitch = Pitch(name=form.name.data, description=form.description.data, category=form.category.data)
     db.session.add(pitch)
     db.session.commit()
 
