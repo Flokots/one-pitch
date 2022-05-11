@@ -61,19 +61,34 @@ def update_pic(uname):
   return redirect(url_for('main.profile', uname=uname))
 
 
-@main.route('/pitches', methods=["GET", "POST"])
-def pitch():
+@main.route('/pitches/<cname>', methods=["GET", "POST"])
+def pitch(cname):
   '''
   View root page function that returns the pitches page and its data
   '''
   pitches = Pitch.query.all()
-  pickuplines = Pitch.query.filter_by(category='Pick Up Lines')
-  business = Pitch.query.filter_by(category="Business")
-  designs = Pitch.query.filter_by(category="Designs")
-  interview = Pitch.query.filter_by(category="Interview")
-  product = Pitch.query.filter_by(category="Product")
 
-  return render_template('pitches.html', pitches=pitches, pickuplines=pickuplines, business=business, designs=designs, interview=interview, product=product)
+  if cname == 'pickuplines':
+    pickuplines = Pitch.query.filter_by(category='Pick Up Lines')
+    return render_template('pitches/pickuplines.html', pickuplines=pickuplines)
+  if cname == 'business':
+    business = Pitch.query.filter_by(category="Business")
+    return render_template('pitches/business.html', business=business)
+  if cname == 'designs':
+    designs = Pitch.query.filter_by(category="Designs")
+    return render_template('pitches/designs.html', designs=designs)
+  if cname == 'interview':
+    interviews = Pitch.query.filter_by(category="Interview")
+    return render_template('pitches/interview.html', interviews=interviews)
+  if cname == 'products':
+    products = Pitch.query.filter_by(category="Product")
+    return render_template('pitches/product.html', products=products)
+  if cname == 'applications':
+    applications = Pitch.query.filter_by(category="Applications")
+    return render_template('pitches/applications.html', applications=applications)
+
+
+  return render_template('pitches.html', pitches=pitches, applications=applications, pickuplines=pickuplines, business=business, designs=designs, interviews=interviews, products=products)
 
 
 @main.route('/pitch/new', methods=['GET', 'POST'])
