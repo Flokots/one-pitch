@@ -22,8 +22,8 @@ def profile(uname):
 
   user = User.query.filter_by(username=uname).first()
 
-  # if user is None:
-  #   abort(404)
+  if user is None:
+    abort(404)
 
   mypitches = Pitch.query.filter_by(user_id = current_user.id).all()
   return render_template("profile/profile.html", user=user, mypitches=mypitches)
@@ -103,7 +103,7 @@ def new_pitch():
     db.session.add(pitch)
     db.session.commit()
     
-    uname = current_user.username
+    
     cname=form.category.data
 
     return redirect(url_for('main.pitch', cname=cname))
