@@ -1,10 +1,11 @@
-from flask import flash, render_template,redirect, url_for, abort, request
+from flask import flash, render_template, redirect, url_for, abort, request
 from flask_login import login_required
 
 from . import main
 from ..models import User, Pitch, Comment
 from .forms import UpdateProfile, AddPitch
 from .. import db, photos
+
 
 @main.route('/')
 def index():
@@ -26,14 +27,14 @@ def profile(uname):
   return render_template("profile/profile.html", user=user)
 
 
-@main.route('/user/<uname>/update', methods = ['GET', 'POST'])
+@main.route('/user/<uname>/update', methods=['GET', 'POST'])
 @login_required
 def update_profile(uname):
   user = User.query.filter_by(username=uname).first()
-  
+
   if user is None:
     abort(404)
-  
+
   form = UpdateProfile()
 
   if form.validate_on_submit():
@@ -56,18 +57,23 @@ def update_pic(uname):
     path = f'photos/{filename}'
     user.profile_pic_path = path
     db.session.commit()
-  
+
   return redirect(url_for('main.profile', uname=uname))
 
 
-@main.route('/pitches', methods = ["GET","POST"])
+@main.route('/pitches', methods=["GET", "POST"])
 def pitch():
   '''
   View root page function that returns the pitches page and its data
   '''
   pitches = Pitch.query.all()
+  pickuplines = Pitch.query.filter_by(category='Pick Up Lines')
+  business = Pitch.query.filter_by(category="Business")
+  designs = Pitch.query.filter_by(category="Designs")
+  interview = Pitch.query.filter_by(category="Interview")
+  product = Pitch.query.filter_by(category="Product")
 
-  return render_template('pitches.html', pitches=pitches)
+  return render_template('pitches.html', pitches=pitches, pickuplines=pickuplines, business=business, designs=designs, interview=interview, product=product)
 
 
 @main.route('/pitch/new', methods=['GET', 'POST'])
@@ -77,13 +83,11 @@ def new_pitch():
   form = AddPitch()
 
   if form.validate_on_submit():
-    pitch = Pitch(name = form.name.data, description = form.description.data, category = form.category.data)
+    pitch = Pitch(name=form.name.data,
+                  description=form.description.data, category=form.category.data)
     db.session.add(pitch)
     db.session.commit()
-    flash('Sucess')
-
 
     return redirect(url_for('main.pitch'))
-  return render_template('addpitch.html', pitch_form = form)
+  return render_template('addpitch.html', pitch_form=form)
 
- 
