@@ -67,7 +67,7 @@
     <h1 class="text-upper">My Pitches</h1>
     <hr>
     {% for pitch in mypitches %}
-    {% if pitch.pitcher == current_user.id %}
+    {% if pitch.user_id == current_user.id %}
       <div class="card mb-3 article-card">
         <div class="row">
           <div class="col-md-12">

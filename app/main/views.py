@@ -22,12 +22,10 @@ def profile(uname):
 
   user = User.query.filter_by(username=uname).first()
 
-  if user is None:
-    abort(404)
+  # if user is None:
+  #   abort(404)
 
-  mypitches = Pitch.query.all()
-  pitcher = Pitch.query.filter_by(user_id=user.id).first()
-  print(pitcher)
+  mypitches = Pitch.query.filter_by(user_id = current_user.id).all()
   return render_template("profile/profile.html", user=user, mypitches=mypitches)
 
 
@@ -70,8 +68,7 @@ def pitch(cname):
   '''
   View root page function that returns the pitches page and its data
   '''
-  pitches = Pitch.query.all()
-
+ 
   if cname == 'pickuplines':
     pickuplines = Pitch.query.filter_by(category='Pick Up Lines')
     return render_template('pitches/pickuplines.html', pickuplines=pickuplines)
@@ -91,9 +88,7 @@ def pitch(cname):
     applications = Pitch.query.filter_by(category="Applications")
     return render_template('pitches/applications.html', applications=applications)
 
-
-  return render_template('pitches.html', pitches=pitches, applications=applications, pickuplines=pickuplines, business=business, designs=designs, interviews=interviews, products=products)
-
+  return render_template('/index.html')    
 
 @main.route('/pitch/new', methods=['GET', 'POST'])
 @login_required
@@ -107,7 +102,10 @@ def new_pitch():
     pitch = Pitch(name=form.name.data, description=form.description.data, category=form.category.data, user_id=user_id)
     db.session.add(pitch)
     db.session.commit()
+    
+    uname = current_user.username
+    cname=form.category.data
 
-    return redirect(url_for('main.pitch'))
+    return redirect(url_for('main.pitch', cname=cname))
   return render_template('addpitch.html', pitch_form=form)
 
