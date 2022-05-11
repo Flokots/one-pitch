@@ -5,7 +5,7 @@ class Config:
   General configuration parent class
   '''
   SECRET_KEY=os.environ.get('SECRET_KEY')
-  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch'
+  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/one_pitch'
   UPLOADED_PHOTOS_DEST='app/static/photos'
 
    # email configurations
@@ -25,8 +25,7 @@ class ProdConfig(Config):
     Config: The parent configuration class with General configuration settings.
   '''
   
-  SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL").replace("://", "ql://", 1)
-  DEBUG=True
+pass
 
 class DevConfig(Config):
   '''
@@ -36,13 +35,13 @@ class DevConfig(Config):
     Config: The parent configuration class with General configuration settings
   '''
 
-  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch'
+  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/one_pitch'
   
 
 DEBUG=True
 
 class TestConfig(Config):
-  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/onepitch_test'
+  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://flo:flo@localhost:5433/one_pitch_test'
 
 
 config_options = {
