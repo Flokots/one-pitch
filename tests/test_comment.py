@@ -1,5 +1,7 @@
-from unicodedata import category
 import unittest
+
+from flask import session
+from app import db
 from app.models import Comment, User, Pitch
 
 class CommentModelTest(unittest.TestCase):
@@ -7,19 +9,20 @@ class CommentModelTest(unittest.TestCase):
   Test Class to test the behavior of the Comment class
   '''
   def setUp(self):
-    self.new_comment = Comment(id=1, name='Worldy', user_id=1, pitch_id=1)
+    self.new_comment = Comment(id=1550, name='Worldy', user_id=1, pitch_id=1)
     self.new_user = User(id=1, username='ndizi', email='ndizi@gmail.com', bio='hey world', profile_pic_path='/static/photos',password='banana')
     self.new_pitch = Pitch(id=1, name='Bizarre', description='Bizarre things happen in this world', category='Applications', upvotes=0, downvotes=0, user_id=1)
 
 
   def tearDown(self):
-      Comment.query.delete()
-      Pitch.query.delete()
-      User.query.delete()
+    Comment.query.delete()
+    Pitch.query.delete()
+    User.query.delete()
+    db.session.remove()
   
   def test_init(self):
-    self.assertEquals(self.new_comment.id, 1)
-    self.assertEqual(self.new_comment.name, 'Worldly')
+    self.assertEquals(self.new_comment.id, 1550)
+    self.assertEqual(self.new_comment.name, 'Worldy')
     self.assertEqual(self.new_comment.user_id, 1)
     self.assertEqual(self.new_comment.pitch_id, 1)
 
@@ -44,5 +47,6 @@ class CommentModelTest(unittest.TestCase):
 
   def test_get_comment_by_id(self):
     self.new_comment.save_comment()
-    got_comments = Comment.get_comment(1)
+    got_comments = Comment.get_comment(1550)
     self.assertTrue(len(got_comments) == 1)
+    print(len(got_comments))
