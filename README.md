@@ -4,7 +4,7 @@ In life, you only have 60 seconds to impress someone. 1 minute can make or break
 One pitch is an application that ensures that you use your one minute wisely and say something meaningful. It allows users to submit one minute pitches and have other users vote and leave comments on them to give feedback. 
 
 ## Demo
-[One Pitch]()
+[One Pitch](https://thenightngale-onepitch.herokuapp.com/)
 ## Author
 [Florence Kotohoyoh](https://github.com/Flokots/)
 
@@ -19,6 +19,8 @@ One pitch is an application that ensures that you use your one minute wisely and
 * As a user, I would like to view the different categories.
 
 ### Technologies and Dependencies Used
+* HTML
+* CSS
 * Python
 * Flask
 * Heroku
@@ -26,6 +28,7 @@ One pitch is an application that ensures that you use your one minute wisely and
 ### Project Setup
 1. Clone this repository.
 2. `cd` into the cloned repository.
+3. Have fun exploring!
    
 ### Contributions
 Should you notice any bug or  want to add a feature, follow these steps to contribute:
